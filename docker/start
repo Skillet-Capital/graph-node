@@ -38,9 +38,12 @@ wait_for_ipfs() {
         proto=${BASH_REMATCH[2]:-http}
         host=${BASH_REMATCH[5]}
         port=${BASH_REMATCH[7]}
+        echo "ipfs proto: $proto"
+        echo "ipfs host: $host"
+        echo "ipfs port: $port"
         if [ -z "$port" ]
         then
-            [ "$proto" = "https" ] && port=443 || port=80
+            [ "$proto" = "https" ] && port=443 || port=5001
         fi
         echo "Waiting for IPFS ($host:$port)"
         wait_for "$host:$port" -t 120
@@ -55,6 +58,7 @@ run_graph_node() {
     then
         # Start with a configuration file; we don't do a check whether
         # postgres is up in this case, though we probably should
+        echo "GRAPH NODE CONFIG NOT NULL"
         wait_for_ipfs "$ipfs"
         sleep 5
         exec graph-node \
@@ -63,9 +67,11 @@ run_graph_node() {
             --ipfs "$ipfs" \
             ${fork_base:+ --fork-base "$fork_base"}
     else
+        echo "GRAPH NODE CONFIG NULL"
         unset GRAPH_NODE_CONFIG
         postgres_port=${postgres_port:-5432}
         postgres_url="postgresql://$postgres_user:$postgres_pass@$postgres_host:$postgres_port/$postgres_db?sslmode=prefer"
+        echo "postgres_url: $postgres_url"
 
         wait_for_ipfs "$ipfs"
         echo "Waiting for Postgres ($postgres_host:$postgres_port)"

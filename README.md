@@ -1,4 +1,15 @@
 # Graph Node
+START IPFS DAEMON
+1. Change ipfs config to run on baremetal at address 0.0.0.0
+2. ipfs daemon &
+3. bg
+
+PULLING AND RUNNING IMAGE
+1. docker pull gcr.io/clever-circlet-310804/{Name of container in Container Registry: Version Number}
+2. docker run -it --cpus="3" --memory="16G" --network="host" imageId
+3. Ctrl + P, Ctrl + Q to detach from container
+4. docker logs -f containerId to view logs
+
 
 [![Build Status](https://github.com/graphprotocol/graph-node/actions/workflows/ci.yml/badge.svg)](https://github.com/graphprotocol/graph-node/actions/workflows/ci.yml?query=branch%3Amaster)
 [![Getting Started Docs](https://img.shields.io/badge/docs-getting--started-brightgreen.svg)](docs/getting-started.md)

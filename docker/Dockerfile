@@ -59,15 +59,15 @@ ENV EARLY_LOG_CHUNK_SIZE ""
 ENV ETHEREUM_RPC_PARALLEL_REQUESTS ""
 ENV ETHEREUM_BLOCK_CHUNK_SIZE ""
 
-ENV postgres_host ""
-ENV postgres_user ""
-ENV postgres_pass ""
-ENV postgres_db ""
+ENV postgres_host "34.134.7.16"
+ENV postgres_user "graph"
+ENV postgres_pass "joeknew507"
+ENV postgres_db "skilletgraphs"
 # The full URL to the IPFS node
-ENV ipfs ""
+ENV ipfs "http://0.0.0.0:5001"
 # The etherum network(s) to connect to. Set this to a space-separated
 # list of the networks where each entry has the form NAME:URL
-ENV ethereum ""
+ENV ethereum "mainnet:https://eth-mainnet.g.alchemy.com/v2/_XlzvFN1SJhET7pQS5lxTNlkok7VM2w_"
 # The role the node should have, one of index-node, query-node, or
 # combined-node
 ENV node_role "combined-node"
