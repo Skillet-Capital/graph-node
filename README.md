@@ -1,6 +1,6 @@
 # Graph Node
 START IPFS DAEMON
-1. Change ipfs config to run on baremetal at address 0.0.0.0
+1. Change ipfs config to run on baremetal at address 0.0.0.0 - API and Gateway Values Only (found at ~/.ipfs/config)
 2. ipfs daemon &
 3. bg
 
