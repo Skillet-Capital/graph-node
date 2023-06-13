@@ -1,4 +1,8 @@
 # Graph Node
+BUILD AND PUSH IMAGE TO CONTAINER REGISTRY
+1. Change all 'gcr.io/$PROJECT_ID/graph-node-build:6' to the version number you are building by changing ':6' to ':7' or ':8' etc.
+2. RUN FROM TOP LEVEL DIRECTORY gcloud builds submit --config=./docker/cloudbuild.yaml
+
 START IPFS DAEMON
 1. Change ipfs config to run on baremetal at address 0.0.0.0 - API and Gateway Values Only (found at ~/.ipfs/config)
 2. ipfs daemon &
